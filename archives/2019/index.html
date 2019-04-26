@@ -383,7 +383,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <p class="site-author-name" itemprop="name">boyforever</p>
+              <p class="site-author-name" itemprop="name">Chenglin Zhang</p>
               <div class="site-description motion-element" itemprop="description"></div>
           </div>
 
@@ -444,7 +444,7 @@
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">boyforever</span>
+  <span class="author" itemprop="copyrightHolder">Chenglin Zhang</span>
 
   
 
@@ -563,6 +563,36 @@
   
 
   
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: '7Av06GP7dFYk1otIEUrhxXku-gzGzoHsz',
+    appKey: 'DfqxCpM5GaB7iatEoXVP9Pup',
+    placeholder: '',
+    avatar: 'hide',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: 'zh-cn' || 'zh-cn'
+  });
+</script>
+
+
 
 
 
