@@ -291,6 +291,342 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.chiely.cn/2019/06/18/scrapy-encode/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chenglin Zhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HelloBoy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/06/18/scrapy-encode/" class="post-title-link" itemprop="url">scrapy编码问题</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-06-18 11:38:23 / Modified: 14:32:22" itemprop="dateCreated datePublished" datetime="2019-06-18T11:38:23+08:00">2019-06-18</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/2019/06/18/scrapy-encode/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/06/18/scrapy-encode/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2019/06/18/scrapy-encode/" class="leancloud_visitors" data-flag-title="scrapy编码问题">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Views: </span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>最近在用scrapy时遇到了两个问题：<br>1、使用BeautifulSoup找ul下的li发现数据不全<br>2、抓取下来的数据乱码</p>
+<p>在查找问题的过程中，发现response.body并不是网上说的<code>str</code>类型，而是<code>bytes</code>类型，于是可以修改为<code>BeautifulSoup(str(response.body, &#39;lxml&#39;)</code>解决第一个问题。<br>而第二个问题则是由于爬取的网页编码不一致，无法统一，而scrapy.response自带了response.encoding用于检测body的具体编码，所以可以很方便的使用<code>BeautifulSoup(str(response.body, response.encoding), &#39;lxml&#39;)</code>来解决乱码问题</p>
+<p>最后由于scrapy本身是基于Unicode的，我们自身服务器要求使用UTF-8，所以在scrapy项目的<code>settings.py</code>文件增加了一行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FEED_EXPORT_ENCODING = &apos;utf-8&apos;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.chiely.cn/2019/05/24/technology-and-business/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chenglin Zhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HelloBoy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/05/24/technology-and-business/" class="post-title-link" itemprop="url">技术与生意</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-05-24 10:14:46 / Modified: 10:18:37" itemprop="dateCreated datePublished" datetime="2019-05-24T10:14:46+08:00">2019-05-24</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/2019/05/24/technology-and-business/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/24/technology-and-business/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2019/05/24/technology-and-business/" class="leancloud_visitors" data-flag-title="技术与生意">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Views: </span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>生意：商品低买高卖，少中间消耗<br>商品：线上&amp;线下、服务&amp;实体</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://blog.chiely.cn/2019/05/20/read-and-gold/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -541,7 +877,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-23 23:14:00" itemprop="dateModified" datetime="2019-05-23T23:14:00+08:00">2019-05-23</time>
+                <time title="Modified: 2019-05-27 10:33:41" itemprop="dateModified" datetime="2019-05-27T10:33:41+08:00">2019-05-27</time>
               
             
           </span>
@@ -603,7 +939,11 @@
           
             <p>汇总（2019-05-16至今）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">训练累计：俯卧撑50个</span><br><span class="line">阅读累计：《朋友圈的尖子生》</span><br><span class="line">爱好累计：双截棍（掌握绕两指收棍、掌握螺旋式换手）</span><br></pre></td></tr></table></figure></p>
 <p>流水：</p>
-<pre><code>2019-05-23：
+<pre><code>2019-05-26：
+    俯卧撑：25
+2019-05-24：
+    俯卧撑：25
+2019-05-23：
     俯卧撑：25
 2019-05-21：
     俯卧撑：20
@@ -745,7 +1085,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-17 10:29:17" itemprop="dateModified" datetime="2019-05-17T10:29:17+08:00">2019-05-17</time>
+                <time title="Modified: 2019-05-27 10:33:49" itemprop="dateModified" datetime="2019-05-27T10:33:49+08:00">2019-05-27</time>
               
             
           </span>
@@ -806,6 +1146,7 @@
         
           
             <p>谦虚、耐心、积极推动</p>
+<p>如果你不能保全他人的自尊，那你永远不可能赢得他的心。</p>
 
           
         
@@ -1055,7 +1396,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1074,7 +1415,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">2</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">tags</span>
                   
                 </div>

@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="我在书里看见了星辰大海 《朋友圈的尖子生》 脱不花1) 敢想敢做：时时可死，步步求生，纵横四海，心无挂碍2) 好奇好学好问 马占凯习惯：日读、俯卧撑从1到100 刘丹尼1) 最小可行性产品(MVP)：早期的创意只需要用最原始的手段（人工）进行验证2) 相信书中所讲，在实践中验证3) 好奇 冯鑫-北航演讲稿1) 折腾：体现自我2) 创造：找到、做到 猫积累、改变、行动、合作、努力 痞子自我认知、不安">
-<meta name="keywords" content="read">
+  <meta name="description" content="最近在用scrapy时遇到了两个问题：1、使用BeautifulSoup找ul下的li发现数据不全2、抓取下来的数据乱码 在查找问题的过程中，发现response.body并不是网上说的str类型，而是bytes类型，于是可以修改为BeautifulSoup(str(response.body, &amp;#39;lxml&amp;#39;)解决第一个问题。而第二个问题则是由于爬取的网页编码不一致，无法统一，而s">
+<meta name="keywords" content="python scrapy 爬虫">
 <meta property="og:type" content="article">
-<meta property="og:title" content="书中自有黄金屋">
-<meta property="og:url" content="https://blog.chiely.cn/2019/05/20/read-and-gold/index.html">
+<meta property="og:title" content="scrapy编码问题">
+<meta property="og:url" content="https://blog.chiely.cn/2019/06/18/scrapy-encode/index.html">
 <meta property="og:site_name" content="HelloBoy">
-<meta property="og:description" content="我在书里看见了星辰大海 《朋友圈的尖子生》 脱不花1) 敢想敢做：时时可死，步步求生，纵横四海，心无挂碍2) 好奇好学好问 马占凯习惯：日读、俯卧撑从1到100 刘丹尼1) 最小可行性产品(MVP)：早期的创意只需要用最原始的手段（人工）进行验证2) 相信书中所讲，在实践中验证3) 好奇 冯鑫-北航演讲稿1) 折腾：体现自我2) 创造：找到、做到 猫积累、改变、行动、合作、努力 痞子自我认知、不安">
+<meta property="og:description" content="最近在用scrapy时遇到了两个问题：1、使用BeautifulSoup找ul下的li发现数据不全2、抓取下来的数据乱码 在查找问题的过程中，发现response.body并不是网上说的str类型，而是bytes类型，于是可以修改为BeautifulSoup(str(response.body, &amp;#39;lxml&amp;#39;)解决第一个问题。而第二个问题则是由于爬取的网页编码不一致，无法统一，而s">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-05-20T16:09:59.940Z">
+<meta property="og:updated_time" content="2019-06-18T06:32:22.357Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="书中自有黄金屋">
-<meta name="twitter:description" content="我在书里看见了星辰大海 《朋友圈的尖子生》 脱不花1) 敢想敢做：时时可死，步步求生，纵横四海，心无挂碍2) 好奇好学好问 马占凯习惯：日读、俯卧撑从1到100 刘丹尼1) 最小可行性产品(MVP)：早期的创意只需要用最原始的手段（人工）进行验证2) 相信书中所讲，在实践中验证3) 好奇 冯鑫-北航演讲稿1) 折腾：体现自我2) 创造：找到、做到 猫积累、改变、行动、合作、努力 痞子自我认知、不安">
+<meta name="twitter:title" content="scrapy编码问题">
+<meta name="twitter:description" content="最近在用scrapy时遇到了两个问题：1、使用BeautifulSoup找ul下的li发现数据不全2、抓取下来的数据乱码 在查找问题的过程中，发现response.body并不是网上说的str类型，而是bytes类型，于是可以修改为BeautifulSoup(str(response.body, &amp;#39;lxml&amp;#39;)解决第一个问题。而第二个问题则是由于爬取的网页编码不一致，无法统一，而s">
 
 
 
@@ -115,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="https://blog.chiely.cn/2019/05/20/read-and-gold/">
+  <link rel="canonical" href="https://blog.chiely.cn/2019/06/18/scrapy-encode/">
 
 
 
@@ -125,7 +125,7 @@
   };
 </script>
 
-  <title>书中自有黄金屋 | HelloBoy</title>
+  <title>scrapy编码问题 | HelloBoy</title>
   
 
 
@@ -294,7 +294,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.chiely.cn/2019/05/20/read-and-gold/">
+    <link itemprop="mainEntityOfPage" href="https://blog.chiely.cn/2019/06/18/scrapy-encode/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Chenglin Zhang">
@@ -311,7 +311,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">书中自有黄金屋
+          <h1 class="post-title" itemprop="name headline">scrapy编码问题
 
               
             
@@ -337,24 +337,12 @@
                 
               
 
-              <time title="Created: 2019-05-20 00:14:47" itemprop="dateCreated datePublished" datetime="2019-05-20T00:14:47+08:00">2019-05-20</time>
+              <time title="Created: 2019-06-18 11:38:23 / Modified: 14:32:22" itemprop="dateCreated datePublished" datetime="2019-06-18T11:38:23+08:00">2019-06-18</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-05-21 00:09:59" itemprop="dateModified" datetime="2019-05-21T00:09:59+08:00">2019-05-21</time>
               
             
           </span>
@@ -372,8 +360,8 @@
                 </span>
             
                 <span class="post-meta-item-text">Comments: </span>
-                <a href="/2019/05/20/read-and-gold/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/20/read-and-gold/" itemprop="commentCount"></span>
+                <a href="/2019/06/18/scrapy-encode/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/06/18/scrapy-encode/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -381,7 +369,7 @@
 
           
           
-            <span id="/2019/05/20/read-and-gold/" class="leancloud_visitors" data-flag-title="书中自有黄金屋">
+            <span id="/2019/06/18/scrapy-encode/" class="leancloud_visitors" data-flag-title="scrapy编码问题">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -412,16 +400,9 @@
       
 
       
-        <p><strong><em>我在书里看见了星辰大海</em></strong></p>
-<h2 id="《朋友圈的尖子生》"><a href="#《朋友圈的尖子生》" class="headerlink" title="《朋友圈的尖子生》"></a>《朋友圈的尖子生》</h2><ol>
-<li><strong>脱不花</strong><br>1) 敢想敢做：时时可死，步步求生，纵横四海，心无挂碍<br>2) 好奇好学好问</li>
-<li><strong>马占凯</strong><br>习惯：日读、俯卧撑从1到100</li>
-<li><strong>刘丹尼</strong><br>1) 最小可行性产品(MVP)：早期的创意只需要用最原始的手段（人工）进行验证<br>2) 相信书中所讲，在实践中验证<br>3) 好奇</li>
-<li><strong>冯鑫-北航演讲稿</strong><br>1) 折腾：体现自我<br>2) 创造：找到、做到</li>
-<li><strong>猫</strong><br>积累、改变、行动、合作、努力</li>
-<li><strong>痞子</strong><br>自我认知、不安分（折腾）、倒逼</li>
-<li><strong>李楠</strong><br>高考移民（降维）、跳出迷雾、信息差、个人局限性</li>
-</ol>
+        <p>最近在用scrapy时遇到了两个问题：<br>1、使用BeautifulSoup找ul下的li发现数据不全<br>2、抓取下来的数据乱码</p>
+<p>在查找问题的过程中，发现response.body并不是网上说的<code>str</code>类型，而是<code>bytes</code>类型，于是可以修改为<code>BeautifulSoup(str(response.body, &#39;lxml&#39;)</code>解决第一个问题。<br>而第二个问题则是由于爬取的网页编码不一致，无法统一，而scrapy.response自带了response.encoding用于检测body的具体编码，所以可以很方便的使用<code>BeautifulSoup(str(response.body, response.encoding), &#39;lxml&#39;)</code>来解决乱码问题</p>
+<p>最后由于scrapy本身是基于Unicode的，我们自身服务器要求使用UTF-8，所以在scrapy项目的<code>settings.py</code>文件增加了一行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FEED_EXPORT_ENCODING = &apos;utf-8&apos;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -445,7 +426,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/read/" rel="tag"># read</a>
+            <a href="/tags/python-scrapy-爬虫/" rel="tag"># python scrapy 爬虫</a>
           
         </div>
       
@@ -458,8 +439,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/17/thousand-zero-nights/" rel="next" title="一千零一夜">
-                <i class="fa fa-chevron-left"></i> 一千零一夜
+              <a href="/2019/05/24/technology-and-business/" rel="next" title="技术与生意">
+                <i class="fa fa-chevron-left"></i> 技术与生意
               </a>
             
           </div>
@@ -467,10 +448,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/24/technology-and-business/" rel="prev" title="技术与生意">
-                技术与生意 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -518,17 +495,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -593,23 +561,6 @@
         </div>
       </div>
 
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#《朋友圈的尖子生》"><span class="nav-number">1.</span> <span class="nav-text">《朋友圈的尖子生》</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
       
 
       
